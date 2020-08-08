@@ -1,0 +1,21 @@
+  
+@import url(style.css);
+
+.detail-list.stick{
+	position: fixed; 
+	top : 0;
+	width : 1200px;
+}
+
+
+.clicked{
+		
+		background-color: #c0c0c0;
+}
+
+
+.newTr {
+	
+	width : 1200px;
+	height: auto;	
+}

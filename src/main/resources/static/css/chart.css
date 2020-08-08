@@ -1,0 +1,94 @@
+.chart-section {
+    padding: 50px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.chart-menu {
+    margin-bottom: 50px;
+    display: flex;
+}
+.chart-menu li {
+    margin-right: 15px;
+    display: flex;
+    width: 230px;
+    height: 100px;
+    background-color: #fff;
+    border: 1px solid #91bba2;
+}
+.chart-menu li img {
+    width: 110px;
+    height: 100px;
+    border-right: 1px solid #91bba2;
+}
+.chart-menu li span {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-self: center;
+    text-align: center;
+    line-height: 35px;
+    color: #0e5b55;
+    font-weight: bold;
+    font-size: 15px;
+}
+.chart-menu li span b {
+    color: coral;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.monthly-section {
+    margin-top: 150px;
+    flex-grow: 1;
+}
+.monthly-section h1 {
+    margin-bottom: 50px;
+    height: 100px;
+    color: coral;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 100px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #91bba2;
+}
+
+#chartdiv {
+    margin: 0 auto;
+    width: 600px;
+    height: 400px;
+}
+#chartdiv2 {
+    margin: 0 auto;
+    width: 700px;
+    height: 400px;
+}
+#chartdiv3 {
+    margin: 0 auto;
+    width: 1000px;
+    height: 500px;
+}
+tspan {
+    font-size: 15px;
+    font-weight: 600;
+}
+#chartdiv rect {
+    width: 600px;
+}
+#chartdiv3 rect {
+    width: 1000px;
+}
+rect {
+    width: 700px;
+}
+  
+  
+
+  /* #chartdiv2 {
+    width: 700px;
+    height: 350px;
+    margin-top: 40px;
+    margin-left: 10%;
+  } */

@@ -1,0 +1,208 @@
+/*판매자 상품 등록*/
+
+.reg-product {
+    margin-bottom: 30px;
+    width: 100%;
+    color: #303236;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.reg-product h2 {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    height: 80px;
+    font-size: 18px;
+    font-weight: 600;
+    background-image: url('../images/down-icon.png');
+    background-repeat: no-repeat;
+    background-position: 97% center;
+    background-size: 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.reg-product h2::before {
+    content: "* ";
+    color: red;
+}
+.reg-product-detail {
+    padding: 20px;
+    min-height: 200px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+/* 카테고리 등록*/
+.reg-category {
+    display: flex;
+    justify-content: space-between;
+}
+.reg-category div {
+    flex: 1 1 50%;
+}
+.reg-category .category-list {
+    display: flex;
+    justify-content: space-between;
+}
+.reg-category .category-list ul {
+    width: 49%;
+    border: 1px solid #eee;
+}
+.reg-category .category-list ul li {
+    height: 50px;
+    line-height: 50px;
+    text-indent: 15px;
+    cursor: pointer;
+}
+.reg-category .category-list ul li:hover {
+    font-weight: 600;
+    background-color: #f2f2f2;
+}
+.reg-category .category-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+.reg-category .category-result span {
+    margin-top: 30px;
+    display: inline-block;
+    color: #0e5b55;
+    font-size: 20px;
+}
+
+/*상품 기본정보*/
+.reg-product-detail table {
+    width: 1500px;
+    table-layout: fixed;
+    border: 1px solid #ddd;
+}
+.reg-product-detail table td {
+    height: 50px;
+    border-bottom: 1px solid #ddd;
+}
+.reg-product-detail td:nth-child(1) {
+    font-weight: 600;
+    text-indent: 15px;
+}
+.reg-product-detail td input {
+    padding: 7px;
+    width: 300px;
+    background-color: #f8f9fd;
+    border: 1px solid #ddd;
+}
+.reg-product-detail td input[type="button"] {
+    width: 150px;
+    cursor: pointer;
+}
+.reg-product-detail td input[type="button"]:hover {
+    font-weight: 600;
+}
+.reg-product-detail td input[type="file"] {
+    width: 400px;
+}
+.reg-product-detail .option-button {
+    color: #fff;
+    background-color: #0e5b55;
+}
+.detail-button {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 30px;
+    width: 200px;
+    height: 45px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+
+.product-tag span {
+    color: #0e5b55;
+}
+
+.reg-product-button {
+    margin: 30px 0;
+    text-align: center;
+}
+.reg-product-button input[type='submit'] {
+    width: 200px;
+    height: 45px;
+    font-size: 16px;
+    border: 0;
+    background-color: #0e5b55;
+    cursor: pointer;
+}
+.reg-product-button button {
+    margin-right: 20px;
+    width: 200px;
+    height: 45px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    cursor: pointer;
+}
+.reg-product-button button:hover {
+    font-weight: 600;
+}
+/* 0718지욱추가 */
+.product-table tbody td:nth-child(5){
+    border-left:1px solid #a8a8a8;
+    align-items: center;
+}
+
+.product-table tbody td:nth-child(5) nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.product-table tbody td:nth-child(5) div{
+    border:1px solid black;
+    text-align: center;
+    width: 100px;
+    height: 25px;
+}
+.product-table tbody td:nth-child(5) div:first-child{
+    margin-bottom: 5px;
+}
+
+/* ------option-header------------- */
+.option-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+/* ------review------------- */
+.seller-list{
+    display: flex;
+    height: 30px;
+    align-items: center;
+}
+    .seller-list h1{
+        margin-right: 10px;
+    }
+   .seller-list>form select {
+        width: 150px;
+        height: 30px;
+        border: 1px solid #ddd;
+        text-indent: 5px;
+    }
+
+
+    /*******qna table *********/
+    .seller-table td:nth-child(3) {
+        text-indent: 20px;
+        text-align: left;
+    }
+    .seller-table td:nth-child(3) a {
+        color: #666;
+    }

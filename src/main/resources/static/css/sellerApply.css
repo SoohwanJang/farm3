@@ -1,0 +1,136 @@
+/* ===============Apply signup================ */
+
+.main-section{
+    color: #333333;
+}
+    .main-section>header{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 0;
+        border-bottom: 1px solid #dddddd;
+        margin-bottom: 20px;
+    }
+    .main-section>header>h1{
+        margin-left: 10px;
+    }
+    .main-section>header>span{
+        font-size: 14px;
+        color: #555555;
+    }
+
+
+
+.division-list{
+    display: flex;
+}
+    .division-list>li{
+        margin-right: 15px;
+    }
+    .division-list>li>input[type=radio]{
+        margin-right: 5px;
+    }
+
+.member-default-info>h1{
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+
+.signup-title-wrap{
+    display: flex;
+    justify-content: space-between;
+}
+/* .font-content-area{
+	width: 500px;
+	hegit: 300px;
+} */
+.apply-signup-table{
+    width: 100%;
+    border-top: 2px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 40px;
+    font-size: 14px;
+}
+    .apply-signup-table td{
+        box-sizing: border-box;
+        height: 55px;
+        border-bottom: 1px solid #cccccc;
+    }
+    .apply-signup-table tr>td:first-child{
+        width: 200px;
+        padding: 0 20px;
+        background: #f9f9f9;
+    }
+    .apply-signup-table tr>td:last-child{
+        padding: 10px 10px;
+    }
+    .apply-signup-table input {
+        box-sizing: border-box;
+        width: 250px;
+        height: 40px;
+        border: 1px solid #dbdbdb;
+        padding: 0 5px;
+    }
+    .apply-signup-table button{
+        cursor: pointer;
+        margin-left: 20px;
+        width: 120px;
+        height: 40px;
+        background: #ffffff;
+        border: 1px solid #aaaaaa;
+        border-radius: 3px;
+        font-size: 15px;
+    }
+    .apply-signup-table button:hover {
+    	color: #fff;
+    	background-color: #aaa;
+    }
+    .apply-signup-table select{
+        border: 1px solid #dbdbdb;
+        height: 30px;
+    }
+    .add-row>input[type=text]{
+        margin-top: 5px;
+        margin-right: 5px;
+        width: 470px;
+    }
+    .add-row>input:first-child{
+        margin: 0;
+        width: 370px;
+    }
+    .add-row>button{
+        cursor: pointer;
+        width: 95px;
+        height: 40px;
+        background: #ffffff;
+        border: 1px solid #aaaaaa;
+        border-radius: 3px;
+        font-size: 16px;
+    }
+    .phone-row select{
+        border: 1px solid #dbdbdb;
+        width: 145px;
+    }
+    .phone-row>input[type=text]{
+        width: 145px;
+    }
+
+.signup-button-container{
+    text-align: center;
+}
+    .signup-button-container .signup-button{
+        cursor: pointer;
+        width: 200px;
+        height: 50px;
+        background: #0e5b55;
+        border: 0;
+        border-radius: 3px;
+        color: white;
+    }
+    
+    
+    
+.approve-status{
+	color: red;
+	font-weight: bolder;
+}    

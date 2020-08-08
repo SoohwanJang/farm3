@@ -1,0 +1,269 @@
+.cart-section {
+    margin: 50px 0;
+    }
+    .cart-table {
+        width: 1200px;
+        font-size: 16px;
+        text-align: center;
+        border: 1px solid #ddd;
+        table-layout: fixed;
+    }
+    .cart-table th {
+        height: 40px;
+        color: #666;
+        text-align: center;
+        font-weight: 600;
+        background-color: #f2f2f2;
+        background-image: url(../images/bar-icon.jpg);
+        background-repeat: no-repeat;
+        background-position: right center;
+    }
+    .cart-table th:last-child {
+        background-image: none;
+    }
+    .cart-table td {
+        padding: 5px 0;
+        color: #666;
+        border-bottom: 1px solid #ddd;
+    }
+    .cart-table-bold {
+        font-weight: 600;
+        font-size: 17px;
+    }
+    .cart-table input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+    }
+    .cart-table input[type="number"] {
+        width: 37px;
+    }
+    .cart-table td:nth-child(2) {
+        display: flex;
+        align-items: center;
+        text-align: left;
+    }
+    .cart-table td:nth-child(2) span {
+        display: inline-block;
+        text-indent: 20px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .cart-table td img {
+        max-width: 100px;
+        height: 100px;
+        overflow: hidden;
+    }
+    .cart-table tr:last-child td {
+        border-bottom: 0;
+    }
+    .cart-table .update-button{
+    	margin-left: 5px;
+	    color: #fff;
+	    background-color: #0e5b55;
+	    border:0;
+	    border-radius: 3px;
+	    height: 25px;
+	    cursor: pointer;
+    }
+
+    .product-button-wrap {
+        margin: 30px 0;
+    }
+	    .product-button-wrap>button {
+	        margin-right: 10px;
+	        width: 120px;
+	        height: 35px;
+	        font-size: 14px;
+	        color: #666;
+	        background: #fff;
+	        border: 1px solid #ddd;
+	        cursor: pointer;
+	    }
+    .product-button:last-child {
+        margin-right: 0;
+    }
+    .product-button:hover {
+        color: #fff;
+        background-color: #0e5b55;
+    }
+    .order-price {
+        display: flex;
+        justify-content: space-around;
+        width: 1200px;
+        height: 130px;
+        align-items: center;
+        border: 1px solid #666;
+        background-image: url('../images/bar-icon.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 2px 50px;
+    }
+    .order-price div {
+        width: 500px;
+        align-items: center;
+    }
+    .price-list {
+        display: flex;
+        justify-content: center;
+        font-size: 18px;
+    }
+    .price-list dl {
+        padding: 0 30px;
+        text-align: center;
+        background-image: url('../images/plus-icon.png');
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 10px;
+    }
+    .price-list dl:nth-child(2) {
+        background-image: url('../images/minus-icon.png');
+    }
+    .price-list dl:last-child {
+        background-image: none;
+    }
+    .price-list dt {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    .price-list span {
+        font-weight: 600;
+    }
+
+    .total-price {
+        font-size: 20px;
+        text-align: center;
+    }
+    .total-price span {
+        color: #0e5b55;
+        font-weight: 600;
+        font-size: 23px;
+    }
+
+    .order-button-wrap {
+        margin: 30px 0;
+        text-align: center;
+    }
+    .order-button-wrap button {
+        width: 200px;
+        height: 50px;
+        color: #0e5b55;
+        font-size: 16px;
+        font-weight: 600;
+        background-color: #fff;
+        border: 1px solid #0e5b55;
+        cursor: pointer;
+    }
+    .order-button-wrap .order {
+        margin-left: 30px;
+        color: #fff;
+        background-color: #0e5b55;
+    }
+    
+
+
+/*주문배송조회*/
+    .order-section {
+        margin: 50px 0;
+    }
+        .order-cur-box {
+            margin-bottom: 50px;
+            padding: 30px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background-color: #edeff2;
+            border: 1px solid #9ca0aa;
+        }
+        .order-cur-box dl {
+            flex: 1 1 30%;
+            font-size: 20px;
+            text-align: center;
+        }
+        .order-cur-box dt {
+            margin-bottom: 10px;
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        .order-table {
+            width: 1200px;
+            font-size: 16px;
+            text-align: center;
+            border: 1px solid #ddd;
+            table-layout: fixed;
+        }
+        
+        .order-table .mis{
+        	height: 130px;
+        }
+        
+        .order-table th {
+            height: 40px;
+            color: #666;
+            text-align: center;
+            font-weight: 600;
+            background-color: #f2f2f2;
+            background-image: url(../images/bar-icon.jpg);
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: 2px 12px;
+        }
+        .order-table th:last-child {
+            background-image: none;
+        }
+        .order-table tr {
+        	border-bottom: 1px solid #ddd;
+        }
+        .order-table td {
+            padding: 5px 0;
+            color: #666;
+        }
+        .order-table-bold {
+            font-weight: 600;
+            font-size: 17px;
+        }
+        .order-table input[type="checkbox"] {
+            width: 15px;
+            height: 15px;
+        }
+        .order-table td:nth-child(2) {
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+        .order-table td:nth-child(2) span {
+            display: inline-block;
+            text-indent: 20px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .order-table td img {
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            margin-left:10px;
+        }
+        .order-table tr:last-child td {
+            border-bottom: 0;
+        }
+        .re-button {
+            margin: 5px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 120px;
+            height: 30px;
+            color: #333;
+            font-size: 15px;
+            background-color: #fff;
+            border: 1px solid #9ca0aa;
+        }
+        
+.no-text{
+	font-weight: bold;
+	font-size: 20px;
+	margin: 40px 0;
+}

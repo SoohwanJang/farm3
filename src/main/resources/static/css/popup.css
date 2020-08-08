@@ -1,0 +1,78 @@
+.search-pop {
+    padding: 10px 25px;
+    box-sizing: border-box;
+    width: 600px;
+}
+.search-pop>h1 {
+	margin-top: 20px;
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.search-pop ul {
+    margin: 40px 0 30px;
+    display: flex;
+    width: 550px;
+    border: 1px solid  #ddd;
+    border-bottom: 2px solid #ddd;
+}
+.search-pop ul li {
+    width: 50%;
+    height: 60px;
+    color: #666;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 60px;
+    text-align: center;
+    cursor: pointer;
+}
+.search-pop .click {
+	background-color: #ddd;
+}
+
+.search-section {
+    padding: 5px;
+    box-sizing: border-box;
+}
+.search-section h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.search-section h3 {
+    margin-bottom: 20px;
+    line-height: 30px;
+}
+.search-section input[type="text"] {
+	margin-bottom: 10px;
+	padding: 10px;
+    width: 550px;
+    height: 40px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+.search-section input[type="submit"],
+.search-section input[type="button"] {
+	margin-top: 10px;
+    width: 550px;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    border: 0;
+    background-color: #666;
+    cursor: pointer;
+}
+.search-section input[type="submit"]:hover,
+.search-section input[type="button"]:hover {
+	font-weight: 600;
+}
+.search-section span {
+	display: inline-block;
+	margin-bottom: 10px;
+	font-size: 18px;
+	line-height: 35px;
+}
+.search-section span b {
+	font-size: 20px;
+}

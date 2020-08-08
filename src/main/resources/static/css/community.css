@@ -1,0 +1,318 @@
+/*而ㅻ�ㅻ땲�떚 - 寃뚯떆�뙋 紐⑥븘�몦 �쁺�뿭 - community.html*/
+.community-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+    .community-section div {
+        margin-bottom: 30px;
+        width: 570px;
+        height: 260px;
+        font-size: 14px;
+        overflow: hidden;
+    }
+    .community-section table {
+        width: 100%;
+        table-layout: fixed;
+        border: 1px solid #ddd;
+    }
+    .community-section table tr:nth-child(1) td {
+        height: 40px;
+        text-indent: 10px;
+        font-weight: 600;
+        background-color: #f2f2f2;
+        background-image: url('../images/plus-icon.png');
+        background-repeat: no-repeat;
+        background-position: 540px center;
+        background-size: 13px;
+    }
+    .community-section table td {
+        height: 35px;
+        color: #666;
+        text-indent: 20px;
+        border: 0;
+        border-bottom: 1px solid #ddd;
+        cursor: pointer;
+    }
+    .community-section table td:nth-child(1) {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space:nowrap;
+    }
+    .community-section table td:nth-child(1):hover {
+        font-weight: 600;
+    }
+    .community-section table td:nth-child(2) {
+        color: #979797;
+        font-size: 12px;
+        text-align: center;
+        text-indent: 0;
+    }
+
+
+/*���뭾�븳�뙗 �냼媛� �럹�씠吏� - intro.hmtl*/
+
+/*而ㅻ�ㅻ땲�떚 寃뚯떆�뙋 怨듯넻 - 怨듭��궗�빆, �엯�젏�떊泥� Q&A, �긽�뭹�썑湲�*/
+.board-search {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 13px;
+}
+    .board-search>form {
+        display: flex;
+        align-items: center;
+        width: 300px;
+        height: 30px;
+        color: #666;
+        border: 1px solid #ddd;
+    }
+    .board-search>form select {
+        width: 80px;
+        height: 30px;
+        border: 0;
+        text-indent: 5px;
+    }
+    .board-search>form input[type="search"] {
+        width: 170px;
+        height: 30px;
+        border: 0;
+        text-indent: 10px;
+    }
+    .board-search>form input[type="submit"] {
+        width: 40px;
+        height: 30px;
+        background-image: url(../images/search-icon.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 20px;
+        background-color: #fff;
+        border: 0;
+        text-indent: -999px;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+.board-table {
+    margin: 20px 0;
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+    .board-table th {
+        height: 35px;
+        color: #666;
+        font-size: 14px;
+        text-align: center;
+        font-weight: 600;
+        background-color: #f2f2f2;
+        background-image: url('../images/bar-icon.jpg');
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 2px 10px;
+    }
+    .board-table th:last-child {
+        background-image: none;
+    }
+    .board-table td {
+        height: 35px;
+        color: #666;
+        font-size: 14px;
+        border-bottom: 1px solid #ddd;
+    }
+    .board-table td:nth-child(2){
+        text-align: left;
+        text-indent: 20px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .board-table tr:last-child td {
+        border-bottom: 0;
+    }
+    .board-table td:last-child {
+        border-right: 0;
+    }
+
+/*由щ럭寃뚯떆�뙋 - �듅�젙遺�遺� (�씠誘몄�, �꽭踰덉㎏ td - �쇊履쎌젙�젹*/
+
+.review-table td:nth-child(2) {
+    padding: 10px 0;
+    text-align: center;
+    text-indent: 0;
+}
+.review-table td:nth-child(2) img {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.review-table td:nth-child(3){
+    text-align: left;
+    text-indent: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+.write-button{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+    .write-button button {
+        width: 90px;
+        height: 35px;
+        color: #666;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        background-color: #fff;
+        background-image: url('../images/pencil-icon.png');
+        background-repeat: no-repeat;
+        background-position: 10px center;
+        background-size: 13px;
+        text-indent: 16px;
+        letter-spacing: 1px;
+        cursor: pointer;   
+    }
+    .write-button button:hover {
+        background-color: #f2f2f2;
+    }
+
+.pager {
+    display: flex;
+    justify-content: center;
+}
+    .pager>ul {
+        margin: 0 20px;
+        display: flex;
+        align-items: center;
+    }
+    .pager>ul li {
+        margin-right: 20px;
+        font-size: 13px;
+        cursor: pointer;
+    }
+    .pager>ul li:last-child {
+        margin-right: 0;
+    }
+    .pager .checked {
+        color: #0e5b55;
+        font-weight: 600;
+    }
+    .pager .btn {
+        display: inline-block;
+        width: 10px;
+        background-image: url('../images/right-icon.png');
+        background-size: 10px;
+        background-repeat: no-repeat;
+        background-position: center;
+        text-indent: -999px;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    .pager .btn-prev {
+        transform: rotate(180deg);
+    }
+
+
+/*--------write button-------------------*/    
+
+/*--------paging-------------------*/
+
+.pager{
+    display: flex;
+    justify-content: center;
+}
+    .pager div:nt{
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+
+/*---------疫뀐옙占쎈쾺疫뀐옙 占쎈읂占쎌뵠筌욑옙------------*/
+.write-container{
+    --background-color: aquamarine;
+    min-height: 300px;
+}
+.write-table{
+    margin: 30px auto;
+    border:0;
+    padding:2;
+} 
+    .write-table thead th{
+        height:20;
+        background-color: #f2f2f2;
+        color: #666;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+
+.table-content{
+    border-collapse: separate;
+    border-spacing: 5px;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    margin-top: 20px;
+        
+}
+    .table-content tr {
+        width: 50px;
+        padding: 10px;
+        font-weight: bold;
+        vertical-align: top;
+        border-bottom: 1px solid #ccc;
+    }
+    .table-content td {
+        width: max-content;
+        padding: 10px;
+        --vertical-align: top;
+        border-bottom: 1px solid #ccc;
+    }
+        .table-content td input[type="text"] {
+            min-inline-size: 800px;
+        }
+        .table-content td textarea{
+            width: 800px;
+            height: 300px;
+            resize: none;
+        }
+		
+.write-button-wrap {
+	text-align:center;
+}
+    .write-button-wrap input[type="submit"] {
+        margin-top: 20px;
+        width: 100px;
+        height: 30px;
+        border: 1px solid #ddd;
+        background-color: #f2f2f2;
+        cursor: pointer;
+    }
+    .write-button-wrap input[type="submit"]:nth-child(1) {
+        margin-right: 20px;
+    }
+    .write-button-wrap input[type="submit"]:hover {
+        color: #fff;
+        font-weight: 600;
+        background-color: #0e5b55;
+    }
+    
+    
+.farm-intro {
+	text-align: center;
+}
+.qna-table td:nth-child(5) {
+	text-align: left;
+}
+.qna-table-title span {
+    margin-left: 5px;
+	color: #fd6f71;
+}

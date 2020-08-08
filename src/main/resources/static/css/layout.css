@@ -1,0 +1,63 @@
+/*怨듯넻*/
+.content-container {
+    margin: 50px auto 80px;
+    width: 1200px;
+    min-height: 400px;
+}
+
+/*硫붿씤*/
+.header {
+    height: 270px;
+}
+.header .inner-header {
+    margin: 0 auto;
+    width: 1200px;
+    height: inherit;
+}
+.main {
+    min-height: 650px;
+}
+.main-section {
+    margin: 50px auto 80px;
+    width: 1200px;
+}
+.footer {
+    height: 100px;
+    background-color: #eee;
+}
+
+/*濡쒓렇�씤, �쉶�썝媛��엯 - member*/
+.login-main-section{
+    margin: 80px auto;
+    width: 480px;
+}
+.mypage-main-section {
+    margin: 50px auto 0;
+    width: 1200px;
+    min-height: inherit;
+    display: flex;
+}
+.mypage-aside{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+    .mypage-aside .profile-container{
+        height: 200px;
+    }
+    .mypage-aside .menu-container{
+        flex-grow: 1;
+    }
+.mypage-body{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+    .mypage-body .shopping-menu-container{
+        margin-top: 20px;
+        height: 180px;
+        margin-bottom: 60px;
+    }
+    .mypage-body .att-container{
+        flex-grow: 1;
+    }

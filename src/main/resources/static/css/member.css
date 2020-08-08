@@ -1,0 +1,381 @@
+
+
+/* style */
+
+
+
+/* style */
+
+.login-main-section .login-intro{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+    .login-main-section .login-intro>img{
+        width: 165px;
+        height: 73px;
+        margin-right: 10px;
+    }
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+}
+    .login-form>input[type=text],.login-form>input[type=password]{
+        box-sizing: border-box;
+        width: 100%;
+        height: 40px;
+        border: 0;
+        border-bottom: 1px solid #dddddd;
+        margin-bottom: 20px;
+        padding: 5px 10px;
+        font-size: 15px;
+    }
+    .login-form>input[type=text]::placeholder,.login-form>input[type=password]::placeholder{
+        letter-spacing: 1px;
+        color: #aaaaaa;
+    }
+    .login-form>input[type=text]{
+        letter-spacing: 2px;
+    }
+    .login-form>input[type=submit]{
+        width: 100%;
+        height: 50px;
+        border: 0;
+        color: white;
+        background: #0e5b55;
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+
+.login-check{
+    text-align: left;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+    .login-check input[type=checkbox]+label{
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border: 1px solid #aaaaaa;
+        background: #ffffff;
+        margin-right: 5px;
+        margin-left: 5px;
+        cursor: pointer;
+        transition: 0.1s;
+    }
+    .login-check input[type=checkbox]:checked + label {
+        background-color: #198179;
+    }
+
+.find-button-list{
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;  
+    margin-bottom: 15px;
+}
+    .find-button-list>li{
+        margin-right: 25px;
+    }
+    .find-button-list>li:last-child{
+        border: 0;
+    }
+    .find-button-list>li>a{
+        font-size: 14px;
+        color: #555555;
+    }
+    .find-button-list>li>a:hover{
+        font-weight: bold;
+    }
+
+.link-button-list{
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dddddd;
+}
+.link-button-list>li>button{
+    cursor: pointer;
+    width: 100%;
+    height: 44px;
+    border: 1px solid #dddddd;
+    background: #ffffff;
+    margin-bottom: 10px;
+    font-size: 15px;
+    border-radius: 3px;
+    transition:  0.15s;
+    font-weight: bold;
+}
+    .link-button-list>li>.naver-link-button:hover{
+        background: #19CE60;
+        color: #ffffff;
+    }
+    .link-button-list>li>.kakao-link-button:hover{
+        background: #ebca12;
+        color: #ffffff;
+    }
+
+.anonymous-button{
+    cursor: pointer;
+    width: 100%;
+    height: 44px;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    font-size: 15px;
+}
+
+/* ===============signup================ */
+
+.signup-section{
+    color: #333333;
+}
+    .signup-section>header{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 0;
+        border-bottom: 1px solid #dddddd;
+        margin-bottom: 20px;
+    }
+    .signup-section>header>h1{
+        margin-left: 10px;
+    }
+    .signup-section>header>span{
+        font-size: 14px;
+        color: #555555;
+    }
+
+
+
+.division-list{
+    display: flex;
+}
+    .division-list>li{
+        margin-right: 15px;
+    }
+    .division-list>li>input[type=radio]{
+        margin-right: 5px;
+    }
+
+.member-default-info>h1{
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.signup-table{
+    width: 100%;
+    border-top: 2px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 40px;
+    font-size: 17px;
+}
+    .signup-table td{
+        box-sizing: border-box;
+        height: 55px;
+        border-bottom: 1px solid #cccccc;
+    }
+    .signup-table tr>td:first-child{
+        width: 200px;
+        padding: 0 20px;
+        background: #f9f9f9;
+    }
+    .signup-table tr>td:last-child{
+        padding: 10px 10px;
+    }
+    .signup-table input[type=text],
+    .signup-table input[type=password]{
+        box-sizing: border-box;
+        width: 470px;
+        height: 40px;
+        border: 1px solid #dbdbdb;
+        padding: 0 5px;
+    }
+    .signup-table select{
+        border: 1px solid #dbdbdb;
+        padding: 0 5px;
+        box-sizing: border-box;
+        width: 350px;
+        height: 40px;
+    }
+    .add-row>input[type=text]{
+        margin-top: 5px;
+        margin-right: 5px;
+        width: 470px;
+    }
+    .add-row>input:first-child{
+        margin: 0;
+        width: 370px;
+    }
+    .add-row>button{
+        cursor: pointer;
+        width: 95px;
+        height: 40px;
+        background: #ffffff;
+        border: 1px solid #aaaaaa;
+        border-radius: 3px;
+        font-size: 16px;
+    }
+    .phone-row select{
+        border: 1px solid #dbdbdb;
+        width: 145px;
+    }
+    .phone-row>input[type=text]{
+        width: 145px;
+    }
+
+.signup-button-container{
+    text-align: center;
+}
+    .signup-button-container .signup-button{
+        cursor: pointer;
+        width: 200px;
+        height: 50px;
+        background: #0e5b55;
+        border: 0;
+        border-radius: 3px;
+        color: white;
+        font-size: 17px;
+    }
+    .option-td {
+    	text-indent: 15px;
+    }
+
+
+
+/* =====myPage===== */
+
+.mypage-aside{
+	min-width: 250px;
+    border-right: 1px solid #dddddd;
+}
+.profile-container{
+    box-sizing: border-box;
+    padding-top: 50px;
+    text-align: center;
+}
+    .profile-container .profile-name{
+        font-size: 22px;
+        font-weight: bold;
+    }
+    .profile-container .profile-id{
+        font-size: 14px;
+    }
+    .profile-container .info-update-button{
+        margin-top: 20px;
+        width: 80px;
+        height: 30px;
+        background: white;
+        color: #0e5b55;
+        border: 1px solid #0e5b55;
+        cursor: pointer;
+    }
+    .profile-container .info-update-button:hover {
+        color: #fff;
+        background-color: #0e5b55;
+    }
+
+.menu-container>section{
+    margin-bottom: 50px;
+}
+    .menu-container>section>h1{
+        margin-bottom: 20px;
+    }
+    .menu-container li{
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    .menu-container li>a:hover{
+        color: #6aa581;
+    }
+
+.shopping-menu-container{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    border: 1px solid #e6e6e6;
+    display: flex;
+    flex-direction: column;
+}
+   
+    .shopping-menu-container .member-info-container{
+        box-sizing: border-box;
+        height: 70px;
+        background: #0e5b55;
+        padding :18px 20px;
+        display: flex;
+        align-items: center;
+
+    }
+    .shopping-menu-container .member-grade-img{
+        display: inline-block;
+        width: 42px;
+        height: 42px;
+        border-radius: 25px;
+        background: white;
+        color: #0e5b55;
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 42px;
+        margin-right: 10px;
+    }
+    .shopping-menu-container .member-info{
+        font-size: 20px;
+        color: white;
+    }
+    .shopping-menu{
+        display: flex;
+        flex-grow: 1;
+    }
+    .shopping-menu>div{
+        flex-grow: 1;
+        border-right: 1px solid #e6e6e6;
+        text-align: center;
+        padding: 20px 0;
+        font-weight: bold;
+    }
+    .shopping-menu>div>div{
+        font-size: 40px;
+        margin-bottom: 5px;
+    }
+
+.att-container>section{
+    margin-left: 30px;
+}
+    .att-container>section>header{
+        border-bottom: 1px solid #bbbbbb;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 20px;
+    }
+    .att-container .att-list{
+        min-height: 280px;
+        margin-bottom: 30px;
+        display: flex;
+        flex-wrap:wrap;
+        padding: 20px 10px 0;
+    }
+    .att-list .att-item{
+        width: 200px;
+        height: 250px;
+        margin-right: 20px;
+        padding: 10px 0;
+        border: 1px solid #e6e6e6;
+    }
+    .att-list .att-item img{
+        width: 160px;
+        height: 200px;
+        padding: 0 20px;
+        margin-bottom: 10px;
+    }
+    .att-list .att-item-des{
+        box-sizing: border-box;
+        width: 160px;
+        margin: 0 auto;
+        text-align: center;
+        overflow: hidden;
+        font-size: 15px;
+    }
