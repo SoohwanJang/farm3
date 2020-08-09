@@ -77,8 +77,8 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>${oi.status}</td>
+                  <tr class="sts-parent">
+                    <td class="sts">${oi.status}</td>
                     <td>${oi.mUid}(${oi.mName})</td>
                     <td>${oi.iName}</td>
                     <td>${oi.iRegName}</td>
@@ -117,7 +117,9 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
                       </c:forEach>
                       </select>
                     </td>
-                    <td><input name="waybillNum" type="number" /></td>
+                    <td>
+                    <input name="waybillNum" type="text" value="${oi.waybillNum eq '' ? '': oi.waybillNum}"/>
+                    </td>
                     <c:if test="${oi.status eq '입금대기'}">
                       <td class="admin-button confirm-payment">입금확인</td>
                     </c:if>
@@ -132,6 +134,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
           </section>
 
           <div class="admin-button">
+          	
             <input type="submit" value="배송" />
             <a href="list">목록</a>
           </div>

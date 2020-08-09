@@ -85,12 +85,17 @@
                         	<input type="text" name="p" class="num-input" maxlength="4"> -
                         	<input type="text" name="p" class="num-input" maxlength="4">
                         </c:if>
+       <%--                  <c:if test="${m.phone ne null }">
                         <c:forTokens var="p" items="${m.phone}" delims="-" varStatus="st"> 
                              <input type="text" name="p" value="p" class="num-input" maxlength="4"> -
                              <c:if test="${st.last }">
                              	<input type="text" name="p" value="p" class="num-input" maxlength="4">
                              </c:if>
                         </c:forTokens>
+                        </c:if> --%>
+                        <input type="text" name="p" value="02" class="num-input" maxlength="4">
+                        <input type="text" name="p" value="1234" class="num-input" maxlength="4">
+                        <input type="text" name="p" value="5678" class="num-input" maxlength="4">
                         </td>
                     </tr>
                </table>

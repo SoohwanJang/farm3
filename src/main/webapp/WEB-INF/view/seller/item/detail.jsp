@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/ckeditor5/sample/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/js/index.js"></script>
+    <script src="/js/seller/seller.js"></script>
     <script src="/js/seller/list.js"></script>
 </head>
 <body>

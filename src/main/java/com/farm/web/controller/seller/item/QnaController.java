@@ -87,7 +87,10 @@ public class QnaController {
 	}
 	
 	@GetMapping("answer")
-	public String answer(@PathVariable("dtlNum") int dtlNum, Model model) {
+	public String answer(
+			Model model,
+			HttpServletRequest request) {
+		String dtlNum = request.getParameter("dtlNum");
 		model.addAttribute("qnaId", dtlNum);
 		return "seller/item/answer";
 	}
