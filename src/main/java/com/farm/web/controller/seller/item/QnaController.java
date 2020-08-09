@@ -86,34 +86,45 @@ public class QnaController {
 		return "seller/item/detail";
 	}
 	
-	@GetMapping("answer")
-	public String answer(
-			Model model,
-			HttpServletRequest request) {
-		String dtlNum = request.getParameter("dtlNum");
-		model.addAttribute("qnaId", dtlNum);
-		return "seller/item/answer";
-	}
-	
-	@PostMapping("answer2")
-	public String answer2(
+//	itemQnA 답변하기
+	@PostMapping("{dtlNum}")
+	public String detail2(@PathVariable("dtlNum") int dtlNum, 
 			HttpServletRequest request, 
-			Principal principal) throws IOException {
-
+			Principal principal) {
+		
 	    int result = 0;
 	    
 	    String data = request.getParameter("ans-content");
 	    
 //	    itemQnA의 id
-	    int id = Integer.parseInt(request.getParameter("qnaId"));
-	    result = qnaService.insertAnswer(id,data);
-		
+	    result = qnaService.insertAnswer(dtlNum,data);
 	    
 	    if(result == 1)
 	    	return "redirect:list";
 	    else
 	    	return "error";
 	}
+	
+	
+//	@PostMapping("answer2")
+//	public String answer2(
+//			HttpServletRequest request, 
+//			Principal principal) throws IOException {
+//
+//	    int result = 0;
+//	    
+//	    String data = request.getParameter("ans-content");
+//	    
+////	    itemQnA의 id
+//	    int id = Integer.parseInt(request.getParameter("qnaId"));
+//	    result = qnaService.insertAnswer(id,data);
+//		
+//	    
+//	    if(result == 1)
+//	    	return "redirect:list";
+//	    else
+//	    	return "error";
+//	}
 	
 
 }
