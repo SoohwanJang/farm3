@@ -100,10 +100,13 @@ public class OrderController {
 		// 택배회사, 송장번호 첨부
 		int deliveryId = Integer.parseInt(request.getParameter("delivery")); 
 		int waybillNum = Integer.parseInt(request.getParameter("waybillNum"));
+		int result = 0;
+		result = orderService.sendItem(dtlNum, deliveryId, waybillNum);
 		
-		orderService.sendItem(dtlNum, deliveryId, waybillNum);
-		
-		return "redirect:list";
+		if(result == 1)
+			return "redirect:list";
+		else
+			return "error";
 	}
 	
 
