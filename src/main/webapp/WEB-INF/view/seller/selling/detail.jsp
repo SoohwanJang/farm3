@@ -84,7 +84,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
                     <td>${oi.iRegName}</td>
                     <td>${oi.iPrice}</td>
                     <td>${oi.qty}</td>
-                    <td>${oi.qty*ol.iPrice}</td>
+                    <td>${oi.qty * oi.iPrice}</td>
                   </tr>
                 </tbody>
               </table>
@@ -134,8 +134,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
           </section>
 
           <div class="admin-button">
-          	
-            <input type="submit" value="배송" />
+            <input type="submit" value="${oi.waybillNum eq '' ?'배송':'수정' }" />
             <a href="list">목록</a>
           </div>
           
