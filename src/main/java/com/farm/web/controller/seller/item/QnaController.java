@@ -1,6 +1,5 @@
 package com.farm.web.controller.seller.item;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.Principal;
 import java.util.List;
@@ -43,13 +42,12 @@ public class QnaController {
 		
 		String uid = principal.getName();
 		Member member = memberDao.getByUid(uid);
-		int id =member.getId();
+		int id = member.getId();
 
 		List<ItemQnAListView> qList = qnaService.getQnAList(id, page, query, field);
 		List<Item> iList = qnaService.getItemList(id);
 		model.addAttribute("iList", iList);
 		model.addAttribute("qList", qList);
-		
 		
 		return "seller/item/qna";
 	}
@@ -65,7 +63,7 @@ public class QnaController {
 		String field = "iName";
 		String uid = principal.getName();
 		Member member = memberDao.getByUid(uid);
-		int id =member.getId();
+		int id = member.getId();
 		
 		List<ItemQnAListView> qList = qnaService.getQnAList(id, page, query, field);
 		List<Item> iList = qnaService.getItemList(id);
@@ -105,27 +103,7 @@ public class QnaController {
 	    	return "error";
 	}
 	
-	
-//	@PostMapping("answer2")
-//	public String answer2(
-//			HttpServletRequest request, 
-//			Principal principal) throws IOException {
-//
-//	    int result = 0;
-//	    
-//	    String data = request.getParameter("ans-content");
-//	    
-////	    itemQnA의 id
-//	    int id = Integer.parseInt(request.getParameter("qnaId"));
-//	    result = qnaService.insertAnswer(id,data);
-//		
-//	    
-//	    if(result == 1)
-//	    	return "redirect:list";
-//	    else
-//	    	return "error";
-//	}
-	
+
 
 }
 

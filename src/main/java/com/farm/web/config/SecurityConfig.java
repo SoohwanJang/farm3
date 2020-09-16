@@ -1,5 +1,6 @@
 package com.farm.web.config;
 
+import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +18,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
    @Autowired
    private DataSource dataSource;
    
+   @PostConstruct
+   public void init() {
+	   System.out.println("");
+   }
    @Override //인증 url 설정
    protected void configure(HttpSecurity http) throws Exception {
       http
          .authorizeRequests()
             .antMatchers("/admin/**").hasRole("ADMIN")  //해당 url에 해당 역할자만 들어와야함.
             //admin/ 모든 하위 경로에 ADMIN이라는 역할을 갖고있는애한테 인증을 허가한다.
-            .antMatchers("/seller/**").hasAnyRole("SELLER", "ADMIN") 
+            .antMatchers("/seller/**").hasAnyRole("SELLER") 
             .antMatchers("/member/basket/**").authenticated()
             .antMatchers("/member/orderitem/**").authenticated()
             .antMatchers("/member/index").authenticated()
@@ -51,7 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
          .jdbcAuthentication()
             .dataSource(dataSource)
             .usersByUsernameQuery("select uid id, pwd password, enabled from Member where uid=?")
-            //endabled 사용자가 활성화 됬냐 (휴먼계정같은 느낌)
+            //enabled 사용자가 활성화 됬냐 (휴먼계정같은 느낌)
             .authoritiesByUsernameQuery("select uid id, role roleId from Member where uid=?")
             //사용자 권한을 작성하는 테이블
             .passwordEncoder(new BCryptPasswordEncoder()); //DB에 암호화된 비번을 비교하는 것

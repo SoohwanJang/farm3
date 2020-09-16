@@ -1,10 +1,14 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
 encoding//src/main/resources=UTF-8
+encoding//src/main/resources/application.properties=UTF-8
 encoding//src/main/resources/static/css/admin.css=UTF-8
 encoding//src/main/resources/static/css/community.css=UTF-8
 encoding//src/main/resources/static/css/layout.css=UTF-8
 encoding//src/main/resources/static/css/product.css=UTF-8
 encoding//src/main/resources/static/css/style.css=UTF-8
 encoding//src/main/webapp/WEB-INF/view/admin/inc/aside.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/view/error/default.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/view/error/noResource.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/view/error/serverError.jsp=UTF-8
 encoding/<project>=UTF-8

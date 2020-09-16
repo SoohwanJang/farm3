@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $(".confirm-payment").click((e) => {
+  $(".confirm-payment").click(() => {
     let cf = confirm("입금확인을 하셨습니까?");
     if (cf == true) {
       let id = $(".oi-id").val();

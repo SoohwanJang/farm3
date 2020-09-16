@@ -56,17 +56,6 @@ public class OrderService {
 		return deliveryDao.getList();
 	}
 	
-//	
-	public int insertAnswer(int id, String data) {
-		int result = 0;
-		Date cTime = new Date();
-	        
-	    
-		result = orderItemDao.update();
-		
-		
-		return result;
-	}
 	
 	public OrderItemView getOrderItemView(int id) {
 		OrderItemView orderItem = orderItemDao.getView(id);

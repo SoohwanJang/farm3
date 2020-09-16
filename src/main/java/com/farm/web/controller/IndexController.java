@@ -2,6 +2,8 @@ package com.farm.web.controller;
 
 import java.util.List;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +27,9 @@ public class IndexController {
 	@Autowired
 	ItemDao itemDao;
 
+	@Autowired
+	private DataSource dataSource;
+	
 	@GetMapping("index")
 	public String index(Model model) {
 

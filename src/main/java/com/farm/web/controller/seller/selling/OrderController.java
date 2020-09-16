@@ -22,7 +22,7 @@ import com.farm.web.entity.OrderItem;
 import com.farm.web.entity.OrderItemView;
 import com.farm.web.service.OrderService;
 
-@Controller("sellerOrderController")	
+@Controller("sellerOrderController")
 @RequestMapping("/seller/selling/")
 public class OrderController {
 
@@ -59,8 +59,13 @@ public class OrderController {
 	public String list2(
 			HttpServletRequest request,
 			Principal principal,
-			Model model) throws UnsupportedEncodingException {
-		request.setCharacterEncoding("UTF-8");
+			Model model) {
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		int page = Integer.parseInt(request.getParameter("p"));
 		String status = request.getParameter("st");
@@ -87,6 +92,7 @@ public class OrderController {
 		List<Delivery> deliveryList = orderService.getDelivery();
 		model.addAttribute("oi", orderItem);
 		model.addAttribute("dl", deliveryList);
+		
 		return "seller/selling/detail";
 	}
 	
@@ -95,18 +101,13 @@ public class OrderController {
 			HttpServletRequest request, 
 			Model model) {
 		
-		
-		
 		// 택배회사, 송장번호 첨부
 		int deliveryId = Integer.parseInt(request.getParameter("delivery")); 
 		int waybillNum = Integer.parseInt(request.getParameter("waybillNum"));
-		int result = 0;
-		result = orderService.sendItem(dtlNum, deliveryId, waybillNum);
-		
-		if(result == 1)
-			return "redirect:list";
-		else
-			return "error";
+		orderService.sendItem(dtlNum, deliveryId, waybillNum);
+
+		return "redirect:list";
+
 	}
 	
 
