@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -42,5 +43,18 @@ public class OrderItemDao2 {
 		WaybillNum waybillNumInfo = new WaybillNum(dtlNum, deliveryId, waybillNum);
 		
 		return sqlSession.update("mybatis.mappers.orderItemMapper.updateWaybillNum", waybillNumInfo);
+	}
+	
+	public int insertError() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("orderId", 55);
+		map.put("itemId", 32);
+		map.put("qty", 2);
+		map.put("payMethod", "card");
+		map.put("status", "입금완료");
+		map.put("deliveryMemo", "잘 부탁드립니다");
+		map.put("payDDate", "2020-09-19");
+		
+		return sqlSession.insert("mybatis.mappers.orderItemMapper.insertError", map);
 	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.farm.web.dao.DeliveryDao;
 import com.farm.web.dao.OrderItemDao;
@@ -12,6 +13,7 @@ import com.farm.web.dao.OrderItemDao2;
 import com.farm.web.entity.Delivery;
 import com.farm.web.entity.OrderItemView;
 import com.farm.web.entity.SimpleCountView;
+import com.farm.web.exception.FarmException;
 
 /**
  * [Service] 주문관리
@@ -49,8 +51,8 @@ public class OrderService {
 		int offset = (page-1)*10; // 1-> 0, 2-> 10, 3-> 20 이 되게 만들어야한다.
 		int size = 10;
 		
-//		return orderItemDao.getList(offset, size, id, status, field, query);
-		return orderItemDao2.getList(id, size, offset, status, field, query);
+		return orderItemDao.getList(offset, size, id, status, field, query);
+//		return orderItemDao2.getList(id, size, offset, status, field, query);
 	}
 	
 	// 판매자의 주문 detail의 뷰를 위한 페이지
@@ -61,10 +63,15 @@ public class OrderService {
 	}
 	
 	// 판매자가 상품을 보내고 회사와 송장번호를 첨부하는 작업
-	public int sendItem(int dtlNum, int deliveryId, int waybillNum) {
+	@Transactional
+	public void sendItem(int dtlNum, int deliveryId, int waybillNum) throws FarmException {
 		
-//		return orderItemDao.updateWaybillNum(dtlNum, deliveryId, waybillNum);
-		return orderItemDao2.updateWaybillNum(dtlNum, deliveryId, waybillNum);
+//		orderItemDao.updateWaybillNum(dtlNum, deliveryId, waybillNum);
+		
+		orderItemDao2.updateWaybillNum(dtlNum, deliveryId, waybillNum);
+		
+		// 에러발생코드
+		orderItemDao2.insertError();
 		
 	}
 	

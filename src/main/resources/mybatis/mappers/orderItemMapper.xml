@@ -85,5 +85,12 @@
 		WHERE id=#{dtlNum}
 	</update>
 	
+	<insert id="insertError" useGeneratedKeys="true"
+	 keyProperty="id" parameterType="hashmap">
+		INSERT
+		INTO orderitem(  orderId,   itemId,   qty,   payMethod,   status,   deliveryMemo,   payDDate)
+				VALUES(#{orderId},#{itemId},#{qty},#{payMethod},#{status},#{deliveryMemo},#{payDDate});
+	</insert>
+	
 	
 </mapper>
