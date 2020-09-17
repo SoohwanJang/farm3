@@ -35,7 +35,8 @@ public class OrderController {
 	public String list(
 			@RequestParam(name = "p", defaultValue = "1") Integer page, 
 			@RequestParam(name = "st", defaultValue = "") String status,
-			@RequestParam(name = "f", defaultValue = "iName") String field,
+//			@RequestParam(name = "f", defaultValue = "iName") String field,
+			@RequestParam(name = "f", defaultValue = "i.name") String field,
 			@RequestParam(name = "q", defaultValue = "") String query,
 			HttpServletRequest request,
 			Principal principal,
@@ -102,6 +103,9 @@ public class OrderController {
 			Model model) {
 		
 		// 택배회사, 송장번호 첨부
+		String deliveryId_ = request.getParameter("delivery");
+		String waybillNum_ = request.getParameter("waybillNum");
+		
 		int deliveryId = Integer.parseInt(request.getParameter("delivery")); 
 		int waybillNum = Integer.parseInt(request.getParameter("waybillNum"));
 		orderService.sendItem(dtlNum, deliveryId, waybillNum);

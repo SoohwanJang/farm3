@@ -8,10 +8,18 @@ import org.springframework.stereotype.Service;
 
 import com.farm.web.dao.DeliveryDao;
 import com.farm.web.dao.OrderItemDao;
+import com.farm.web.dao.OrderItemDao2;
 import com.farm.web.entity.Delivery;
 import com.farm.web.entity.OrderItemView;
 import com.farm.web.entity.SimpleCountView;
 
+/**
+ * [Service] 주문관리
+ * @author soo
+ * @since 2019.10.202
+ * 
+ *
+ */
 @Service
 public class OrderService {
 
@@ -20,27 +28,43 @@ public class OrderService {
 	private OrderItemDao orderItemDao;
 	@Autowired
 	private DeliveryDao deliveryDao;
+	@Autowired
+	private OrderItemDao2 orderItemDao2;
+	
 	
 //	------------수환--------------
 	// 판매자의 주문현황 list의 뷰를 위한 페이지
-	public List<OrderItemView> getOrderItemList(int id, Integer page, String status, String field, String query){
+/**
+ * 
+ * @param id
+ * @param page
+ * @param status
+ * @param field
+ * @param query
+ * @return
+ */
 
+	public List<OrderItemView> getOrderItemList(int id, Integer page, String status, String field, String query){
+	
 		int offset = (page-1)*10; // 1-> 0, 2-> 10, 3-> 20 이 되게 만들어야한다.
 		int size = 10;
 		
-	  return orderItemDao.getList(offset, size, id, page, status, field, query);
+//		return orderItemDao.getList(offset, size, id, status, field, query);
+		return orderItemDao2.getList(id, size, offset, status, field, query);
 	}
 	
 	// 판매자의 주문 detail의 뷰를 위한 페이지
 	public OrderItemView getOrderItemView1(int id) {
 	
-		return orderItemDao.getView(id);
+//		return orderItemDao.getView(id);
+		return orderItemDao2.getView(id);
 	}
 	
 	// 판매자가 상품을 보내고 회사와 송장번호를 첨부하는 작업
 	public int sendItem(int dtlNum, int deliveryId, int waybillNum) {
 		
-		return orderItemDao.updateWaybillNum(dtlNum, deliveryId, waybillNum);
+//		return orderItemDao.updateWaybillNum(dtlNum, deliveryId, waybillNum);
+		return orderItemDao2.updateWaybillNum(dtlNum, deliveryId, waybillNum);
 		
 	}
 	
@@ -57,13 +81,14 @@ public class OrderService {
 	}
 	
 	
+//******************지욱*******************
 	public OrderItemView getOrderItemView(int id) {
 		OrderItemView orderItem = orderItemDao.getView(id);
 		
 		return orderItem;
 	}
 
-	//******************지욱*******************
+
 	public List<OrderItemView> getMemberOIList(String uid){
 		
 		

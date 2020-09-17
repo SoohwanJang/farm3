@@ -71,8 +71,10 @@
 		        	        </div>
 	                        <div class="board-search">
 	                            <select name="f">
-	                                <option value="iName">상품명</option>
-	                                <option value="iRegName">등록상품명</option>
+	                                <option value="i.name">상품명</option>
+	                                <option value="i.regName">등록상품명</option>
+                            	    <!-- <option value="iName">상품명</option>
+	                                < option value="iRegName">등록상품명</option>-->
 	                            </select>
 	                            <input type="search" name="q" placeholder="검색어를 입력하세요.">
 	                            <input type="hidden" name="p" value="${p}">

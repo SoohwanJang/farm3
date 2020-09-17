@@ -10,8 +10,7 @@
 	<div style="width:500px;
 				height:500px
 				font-size: 30px;">
-				defualt 에러페이지입니다.
+				server 에러페이지입니다.
 	</div>
-
 </body>
 </html>

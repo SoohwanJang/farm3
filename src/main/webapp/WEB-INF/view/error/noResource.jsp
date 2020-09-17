@@ -1,16 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
-    <div style="width: 500px;
-                height: 500px;">
-        
-        <br> noResource 페이지입니다
-    </div>
-    
+	<div style="width:500px;
+				height:500px
+				font-size: 30px;">
+				noResource 에러페이지입니다.
+	</div>
 </body>
 </html>

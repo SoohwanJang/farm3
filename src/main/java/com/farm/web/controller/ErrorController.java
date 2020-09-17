@@ -18,7 +18,7 @@ public class ErrorController {
 
 	@GetMapping("server-error")
 	public String serverError() {
-		return "error/serverError";
+		return "error/server";
 	}
 
 }

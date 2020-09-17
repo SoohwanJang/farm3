@@ -20,7 +20,7 @@ public interface OrderItemDao {
 	@Select("select * from OrderItemView"
 			+ " where iSellerId = ${id} and status like '%${status}%' and ${field} like '%${query}%' LIMIT ${size} OFFSET ${offset}")
 	List<OrderItemView> getList(int offset, int size, 
-			int id, int page, String status, String field, String query);
+			int id, String status, String field, String query);
 	
 	@Select("select * from OrderItemView where id=${id}")
 	OrderItemView getView(int id);

@@ -74,11 +74,14 @@ public class BasketController {
 		int totalPrice = 0;
 		int totalDf = 0;
 		
+		System.out.println(uName);
+		
 		List<BasketView> basketList = basketService.getList(uName);
 		for(BasketView bv : basketList) {
 			totalPrice += bv.getPrice()*bv.getQty();
 			totalDf += bv.getDeliveryFee();
 		}
+		System.out.println(basketList);
 		
 		Map<String, Integer> price = new HashMap<>();
 		price.put("totalPrice", totalPrice);
