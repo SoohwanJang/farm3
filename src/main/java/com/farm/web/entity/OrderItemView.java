@@ -20,6 +20,24 @@ public class OrderItemView extends OrderItem{
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	public OrderItemView(String mUid, String mName, String iName, String iRegName, String iImage, int iSellerId,
+			int iPrice, Date oRegDate, String oDes, String dComId, String dName) {
+		super();
+		this.mUid = mUid;
+		this.mName = mName;
+		this.iName = iName;
+		this.iRegName = iRegName;
+		this.iImage = iImage;
+		this.iSellerId = iSellerId;
+		this.iPrice = iPrice;
+		this.oRegDate = oRegDate;
+		this.oDes = oDes;
+		this.dComId = dComId;
+		this.dName = dName;
+	}
+
+
 	public String getmUid() {
 		return mUid;
 	}

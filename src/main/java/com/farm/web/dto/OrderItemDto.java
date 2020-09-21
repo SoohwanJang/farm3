@@ -1,6 +1,6 @@
-package com.farm.web.param;
+package com.farm.web.dto;
 
-public class OrderItemList {
+public class OrderItemDto {
 	
 	private int id;
 	private String status;
@@ -9,20 +9,6 @@ public class OrderItemList {
 	private int size;
 	private int offset;
 	
-	public OrderItemList() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	
-	public OrderItemList(int id, String status, String field, String query, int size, int offset) {
-		super();
-		this.id = id;
-		this.status = status;
-		this.field = field;
-		this.query = query;
-		this.size = size;
-		this.offset = offset;
-	}
 
 
 	public int getId() {

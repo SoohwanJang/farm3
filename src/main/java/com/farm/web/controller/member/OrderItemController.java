@@ -3,9 +3,6 @@ package com.farm.web.controller.member;
 import java.security.Principal;
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.farm.web.entity.OrderItemView;
 import com.farm.web.entity.SimpleCountView;
-import com.farm.web.service.OrderService;
+import com.farm.web.service.OrderServiceImpl;
 
 @Controller
 @RequestMapping("/member/orderitem/")
 public class OrderItemController {
 	
 	@Autowired
-	private OrderService orderservice;
+	private OrderServiceImpl orderservice;
 	
 	@GetMapping("list")
 	public String list(Principal principal,Model model) {

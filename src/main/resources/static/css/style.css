@@ -95,3 +95,7 @@ body {
 .expand-col {
     width: 500px;
 }
+
+.cur-page {
+    color:#91bba2;
+}

@@ -123,18 +123,19 @@
 	                </c:otherwise>
 	                </c:choose>
 	                <div class="pager">	
-	                    <a href="?p=${((pi.pageOffset-1) * 5) + 1}&st=${st}&f=${f}&q=${q}"><</a>
+	                    <span class="btn btn-prev" onclick="alert('이전 페이지가 없습니다.');">이전</span>
 	                    <ul class="page-list">
-	                    	<c:forEach var="i" begin="1" end="5">
-	                    	<c:if test="${pi.lastPage >= (pi.pageOffset * 5) + i}">
-	                    		<li>
-	                    		<a href="?p=${(pi.pageOffset * 5) + i}&st=${st}&f=${f}&q=${q}" 
-	                    		${(pi.pageOffset * 5) + i eq p ? 'class="cur-page"' : ''}>
-	                    			${(pi.pageOffset * 5) + i}</a></li>
-	                    	</c:if>
+	                    	<c:forEach items="">
+	                    		<li><a href="?p=${(pi.pageOffset *5) + x}&st=${st}&f=${f}&q=${q}">1</a></li>
 	                    	</c:forEach>
+	                    	
+	                        <li><a href="?p=1&st=${st}&f=${f}&q=${q}">1</a></li>
+	                        <li><a href="?p=2&st=${st}&f=${f}&q=${q}">2</a></li>
+	                        <li><a href="?p=3&st=${st}&f=${f}&q=${q}">3</a></li>
+	                        <li><a href="?p=4&st=${st}&f=${f}&q=${q}">4</a></li>
+	                        <li><a href="?p=5&st=${st}&f=${f}&q=${q}">5</a></li>
 	                    </ul>
-	                    <a href="?p=${((pi.pageOffset+1) * 5) + 1}&st=${st}&f=${f}&q=${q}">></a>
+	                    <span class="btn btn-next" onclick="alert('다음 페이지가 없습니다.');">다음</span>
 	                </div>
 	            </section>
 	        </section>

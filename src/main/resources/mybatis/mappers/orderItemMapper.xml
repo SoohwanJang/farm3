@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 맵핑될 DAO 인터페이스의 Full name 을 줍니다. -->
-<mapper namespace="com.farm.web.dao.OrderItemDao2">
-	<!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어 있습니다. -->
-	<select id="getList"  resultType="com.farm.web.entity.OrderItemView">
+<mapper namespace="com.farm.web.dao.OrderItemDao3">
+	<!-- id 속성은 DAO 의 메소드와 같아야 한다. -->
+	<select id="getList"  parameterType="com.farm.web.dto.OrderItemDto" resultType="com.farm.web.entity.OrderItemView">
 		SELECT 
 	         oi.id AS id
 	       , oi.orderId AS orderId
@@ -29,21 +29,22 @@
 	       , d.comId AS dComId
 	       , d.name AS dName
 	    FROM orderitem AS oi
-	    INNER JOIN order AS o 
+	    INNER JOIN `order` AS o 
 	    	ON oi.orderId = o.id
-	    INNER JOIN member AS m 
+	    INNER JOIN `member` AS m 
 	    	ON m.id = o.memberId
 	    INNER JOIN item AS i 
 	    	ON oi.itemId = i.id
 	   	LEFT JOIN delivery AS d 
 	   		ON d.id = oi.deliveryId
 		WHERE i.sellerId = #{id}
-			AND oi.status LIKE '%#{status}%' 
-			AND #{field} LIKE '%#{query}%' 
+			AND oi.status LIKE '%${status}%' 
+			AND #{field} LIKE '%${query}%'
+		ORDER BY o.regDate DESC
 		LIMIT #{size} OFFSET #{offset}
 	</select>
 	
-	<select id="getView" parameterType="Integer" resultType="com.farm.web.entity.OrderItemView">
+	<select id="getView" parameterType="int" resultType="com.farm.web.entity.OrderItemView">
 		SELECT
 		 	  oi.id AS id
 	        , oi.orderId AS orderId
@@ -68,9 +69,9 @@
 	        , d.comId AS dComId
 	        , d.name AS dName 
 		 FROM orderitem AS oi
-	     INNER JOIN order AS o 
+	     INNER JOIN `order` AS o 
 	     	ON oi.orderId = o.id
-	     INNER JOIN member AS m 
+	     INNER JOIN `member` AS m 
 	     	ON m.id = o.memberId
 	     INNER JOIN item AS i 
 	     	ON oi.itemId = i.id
@@ -79,7 +80,7 @@
 		 WHERE oi.id=#{id}
 	</select>
 	
-	<update id="updateWaybillNum" parameterType="com.farm.web.param.WaybillNum">
+	<update id="updateWaybillNum" parameterType="com.farm.web.dto.WaybillNum">
 		UPDATE orderitem 
 		SET deliveryId= #{deliveryId}, status='배송중', waybillNum=#{waybillNum} 
 		WHERE id=#{dtlNum}
@@ -92,5 +93,23 @@
 				VALUES(#{orderId},#{itemId},#{qty},#{payMethod},#{status},#{deliveryMemo},#{payDDate});
 	</insert>
 	
+	<insert id="insert" parameterType="com.farm.web.entity.OrderItem">
+		INSERT
+		INTO orderitem(  orderId,   itemId,   qty,   payMethod,   status,   deliveryMemo,   payDDate)
+				VALUES(#{orderId},#{itemId},#{qty},#{payMethod},#{status},#{deliveryMemo},#{payDDate});
+	</insert>
+	
+	<update id="updatePayCDate" parameterType="hashmap">
+		UPDATE orderitem 
+		SET status='입금확인', payCDate=#{payCDate}
+		WHERE id=#{id}
+	</update>
+	
+	<select id="getTotalCount" parameterType="int" resultType="int">
+		SELECT COUNT(*) 
+		FROM orderitem oi JOIN item i 
+		ON oi.itemId = i.id
+		WHERE i.sellerId = #{id};
+	</select>
 	
 </mapper>

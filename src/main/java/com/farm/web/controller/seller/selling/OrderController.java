@@ -16,18 +16,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.farm.web.dao.MemberDao;
+import com.farm.web.dto.PageInfoVo;
 import com.farm.web.entity.Delivery;
 import com.farm.web.entity.Member;
-import com.farm.web.entity.OrderItem;
 import com.farm.web.entity.OrderItemView;
-import com.farm.web.service.OrderService;
+import com.farm.web.service.OrderServiceImpl;
 
 @Controller("sellerOrderController")
 @RequestMapping("/seller/selling/")
 public class OrderController {
 
 	@Autowired
-	private OrderService orderService;
+	private OrderServiceImpl orderService;
 	@Autowired
 	private MemberDao memberDao;
 	
@@ -38,6 +38,7 @@ public class OrderController {
 //			@RequestParam(name = "f", defaultValue = "iName") String field,
 			@RequestParam(name = "f", defaultValue = "i.name") String field,
 			@RequestParam(name = "q", defaultValue = "") String query,
+//			@RequestBody Map<String,Object> parameter,
 			HttpServletRequest request,
 			Principal principal,
 			Model model) {
@@ -52,6 +53,9 @@ public class OrderController {
 		model.addAttribute("st", status);
 		model.addAttribute("f", field);
 		model.addAttribute("q", query);
+		
+		PageInfoVo pageInfo = orderService.getPageInfo(id, page);
+		model.addAttribute("pi", pageInfo);
 		
 		return "seller/selling/list";
 	}
@@ -82,6 +86,9 @@ public class OrderController {
 		model.addAttribute("st", status);
 		model.addAttribute("f", field);
 		model.addAttribute("q", query);
+		
+		PageInfoVo pageInfo = orderService.getPageInfo(id, page);
+		model.addAttribute("pi", pageInfo);
 		
 		return "seller/selling/list";
 	}

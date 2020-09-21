@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.farm.web.dto.OrderItemDto;
+import com.farm.web.dto.WaybillNum;
 import com.farm.web.entity.OrderItemView;
-import com.farm.web.param.WaybillNum;
 
 @Repository
 public class OrderItemDao2 {
@@ -26,23 +26,27 @@ public class OrderItemDao2 {
 		paramMap.put("status", status);
 		paramMap.put("field", field);
 		paramMap.put("query", query);
+		OrderItemDto orderItemList = new OrderItemDto();
 		
 
-		List<OrderItemView> testList = sqlSession.selectList("mybatis.mappers.orderItemMapper.getList", paramMap);
-//		List<OrderItemView> testList = sqlSession.selectList("mybatis.mappers.orderItemMapper.getList", orderItemList);
+//		List<OrderItemView> testList = sqlSession.selectList("com.farm.web.dao.OrderItemDao2.getList", paramMap);
+		List<OrderItemView> testList = sqlSession.selectList("com.farm.web.dao.OrderItemDao2.getList", orderItemList);
+		System.out.println(testList);
+		
 		return testList;
 	}
 	
 	public OrderItemView getView(int id) {
 		
-		return sqlSession.selectOne("mybatis.mappers.orderItemMapper.getView", id);
+		
+		return sqlSession.selectOne("com.farm.web.dao.OrderItemDao2.getView", id);
 	}
 	
 	public int updateWaybillNum(int dtlNum, int deliveryId, int waybillNum) {
 		
 		WaybillNum waybillNumInfo = new WaybillNum(dtlNum, deliveryId, waybillNum);
 		
-		return sqlSession.update("mybatis.mappers.orderItemMapper.updateWaybillNum", waybillNumInfo);
+		return sqlSession.update("com.farm.web.dao.OrderItemDao2.updateWaybillNum", waybillNumInfo);
 	}
 	
 	public int insertError() {
@@ -55,6 +59,6 @@ public class OrderItemDao2 {
 		map.put("deliveryMemo", "잘 부탁드립니다");
 		map.put("payDDate", "2020-09-19");
 		
-		return sqlSession.insert("mybatis.mappers.orderItemMapper.insertError", map);
+		return sqlSession.insert("com.farm.web.dao.OrderItemDao2.insertError", map);
 	}
 }

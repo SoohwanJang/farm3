@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-//아노 테이션 기반 트랜잭션 관리를 사용 합니다.
+//어노 테이션 기반 트랜잭션 관리를 사용 합니다.
 //<tx:annotation-driven>
 //데이터베이스 설정
 public class ContextDataSource {
@@ -35,14 +35,7 @@ public class ContextDataSource {
 		return dataSource;
 
 	}
-
-//	@Autowired
-//	   private BasicDataSource dataSource;
-//	
-	@PostConstruct
-	public void init() {
-		System.out.println();
-	}
+	
 	/**
 	 * 트랜잭션 매니저 등록
 	 * @return
@@ -52,6 +45,11 @@ public class ContextDataSource {
         return new DataSourceTransactionManager(dataSource());
 
     }
+    
+	@PostConstruct
+	public void init() {
+		System.out.println();
+	}
 
 }
 

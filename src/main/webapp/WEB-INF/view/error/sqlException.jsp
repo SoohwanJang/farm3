@@ -7,10 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div style="width:500px;
-				height:500px
-				font-size: 30px;">
-				server 에러페이지입니다.
+	<div class="error">
+		<h1>이런..sql 에러가 발생 했습니다!!</h1>
+		<img src="/images/intro-img.png" style="width:500px; height:500px">
 	</div>
 </body>
 </html>

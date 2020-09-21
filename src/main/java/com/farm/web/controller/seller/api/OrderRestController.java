@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.farm.web.service.OrderService;
+import com.farm.web.service.OrderServiceImpl;
 
 @RestController("sellerOrderRestController")
 @RequestMapping("/api/seller/")
 public class OrderRestController {
 	
 	@Autowired
-	private OrderService orderService;
+	private OrderServiceImpl orderService;
 	
 	@GetMapping("confirm")
 	public int cdate(@RequestParam(name = "id") String id_) {

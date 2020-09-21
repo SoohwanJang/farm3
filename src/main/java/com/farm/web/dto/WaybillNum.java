@@ -1,4 +1,4 @@
-package com.farm.web.param;
+package com.farm.web.dto;
 
 public class WaybillNum {
 
