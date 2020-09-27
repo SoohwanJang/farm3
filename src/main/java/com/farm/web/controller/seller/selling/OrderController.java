@@ -34,11 +34,9 @@ public class OrderController {
 	@GetMapping("list")
 	public String list(
 			@RequestParam(name = "p", defaultValue = "1") Integer page, 
-			@RequestParam(name = "st", defaultValue = "") String status,
-//			@RequestParam(name = "f", defaultValue = "iName") String field,
+			@RequestParam(name = "st", defaultValue = "0") String status,
 			@RequestParam(name = "f", defaultValue = "i.name") String field,
 			@RequestParam(name = "q", defaultValue = "") String query,
-//			@RequestBody Map<String,Object> parameter,
 			HttpServletRequest request,
 			Principal principal,
 			Model model) {

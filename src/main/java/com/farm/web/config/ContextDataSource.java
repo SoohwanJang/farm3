@@ -27,7 +27,7 @@ public class ContextDataSource {
 	public DataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/farm?autoReconnect=true&characterEncoding=UTF-8&serverTimezone=Asia/Seoul&allowMultiQueries=true&useUnicode=true");
+		dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/farm2?autoReconnect=true&characterEncoding=UTF-8&serverTimezone=Asia/Seoul&allowMultiQueries=true&useUnicode=true");
 		dataSource.setUsername("root");
 		dataSource.setPassword("1234");
 		dataSource.setDefaultAutoCommit(false);

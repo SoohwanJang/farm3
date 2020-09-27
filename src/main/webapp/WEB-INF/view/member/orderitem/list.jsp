@@ -27,13 +27,13 @@
 
                     <c:forEach var="c" items="${colist}">
                     	<c:choose>
-						    <c:when test="${c.element eq '배송중'}">
+						    <c:when test="${c.element eq '3'}">
 								<c:set var="count1" value="${c.count}" />
 						    </c:when>
-					     	<c:when test="${c.element eq '배송완료'}">
+					     	<c:when test="${c.element eq '4'}">
 								<c:set var="count2" value="${c.count}" />
 						    </c:when>
-							<c:when test="${c.element eq '주문취소'}">
+							<c:when test="${c.element eq '5'}">
 								<c:set var="count3" value="${c.count}" />
 						    </c:when>
 						    <c:otherwise>
@@ -100,32 +100,51 @@
 
                             <td>${n.iPrice }원(${n.qty }개)</td>
 
-                            <td>${n.status }</td>
+                            <c:choose>
+                            <c:when test="${n.oiStatus == 1}">
+                            <td>입금대기</td>
+                            </c:when>
+                            <c:when test="${n.oiStatus == 2}">
+                            <td>입금확인</td>
+                            </c:when>	                                    
+                            <c:when test="${n.oiStatus == 3}">
+                            <td>배송중</td>
+                            </c:when>
+                            <c:when test="${n.oiStatus == 4}">
+                            <td>배송완료</td>
+                            </c:when>
+                            <c:when test="${n.oiStatus == 5}">
+                            <td>주문취소</td>
+                            </c:when>
+                            <c:otherwise>
+                            <td>무상태</td>
+                            </c:otherwise>	                                   
+                            </c:choose>
 
                             <td>
-                            <c:set var="status" value="${n.status }" />
+                            <c:set var="status" value="${n.oiStatus }" />
 
 								<c:choose>
-								    <c:when test="${status eq '입금대기'}">
+								    <c:when test="${status eq '1'}">
 								       <a href="/product/details/${n.itemId }" class="re-button">리뷰작성</a>
 								       <a href="/product/details/${n.itemId }" class="re-button">상품 QnA</a>
 								       <a href="cancle?id=${n.id }" class="re-button cancle">주문취소</a>
 								    </c:when>
-								     <c:when test="${status eq '입금확인'}">
+								     <c:when test="${status eq '2'}">
 								       <a href="/product/details/${n.itemId }" class="re-button">리뷰작성</a>
 								       <a href="/product/details/${n.itemId }" class="re-button">상품 QnA</a>
 								       <a href="cancle?id=${n.id }" class="re-button cancle">주문취소</a>
 								    </c:when>
-								     <c:when test="${status eq '배송중'}">
+								     <c:when test="${status eq '3'}">
 								       <a href="/product/details/${n.itemId }" class="re-button">리뷰작성</a>
 								       <a href="/product/details/${n.itemId }" class="re-button">상품 QnA</a>
 								       <a href="https://tracker.delivery/#/${n.dComId }/${n.waybillNum }" target="_blank" class="re-button">배송확인</a>
 								    </c:when>
-								     <c:when test="${status eq '배송완료'}">
+								     <c:when test="${status eq '4'}">
 								       <a href="/product/details/${n.itemId }" class="re-button">리뷰작성</a>
 								       <a href="/product/details/${n.itemId }" class="re-button">상품 QnA</a>
 								    </c:when>
-								     <c:when test="${status eq '주문취소'}">
+								     <c:when test="${status eq '5'}">
 								       <a href="/product/details/${n.itemId }" class="re-button">상품 QnA</a>
 								    </c:when>
 								</c:choose>

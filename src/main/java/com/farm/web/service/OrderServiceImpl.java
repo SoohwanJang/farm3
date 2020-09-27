@@ -1,5 +1,6 @@
 package com.farm.web.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -10,11 +11,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.farm.web.dao.DeliveryDao;
+import com.farm.web.dao.OrderDao;
 import com.farm.web.dao.OrderItemDao;
 import com.farm.web.dao.OrderItemDao3;
 import com.farm.web.dto.OrderItemDto;
 import com.farm.web.dto.PageInfoVo;
 import com.farm.web.entity.Delivery;
+import com.farm.web.entity.OrderItem;
 import com.farm.web.entity.OrderItemView;
 import com.farm.web.entity.SimpleCountView;
 import com.farm.web.exception.FarmException;
@@ -37,6 +40,9 @@ public class OrderServiceImpl{
 	private DeliveryDao deliveryDao;
 	@Autowired
 	private OrderItemDao3 orderItemDao3;
+	@Autowired
+	private OrderDao orderDao;
+	
 	
 	
 //	------------수환--------------
@@ -52,25 +58,32 @@ public class OrderServiceImpl{
  */
 
 	public List<OrderItemView> getOrderItemList(int id, Integer page, String status, String field, String query){
-	
+		List<OrderItemView> list = new ArrayList<OrderItemView>();
 		// 한 페이지에 보여질 목록의 개수
 		int size = 10;
 		
 		// 오프셋 구하기
 		int offset = (page-1)*10; // 1-> 0, 2-> 10, 3-> 20 이 되게 만들어야한다.
 		
-		
+		int st = Integer.parseInt(status);
 		OrderItemDto orderItemDto = new OrderItemDto();
-		orderItemDto.setId(id);
-		orderItemDto.setStatus(status);
-		orderItemDto.setField(field);
-		orderItemDto.setQuery(query);
-		orderItemDto.setSize(size);
-		orderItemDto.setOffset(offset);
 		
+			orderItemDto.setId(id);
+			orderItemDto.setStatus(st);
+			orderItemDto.setField(field);
+			orderItemDto.setQuery(query);
+			orderItemDto.setSize(size);
+			orderItemDto.setOffset(offset);
+			
+
+		if(st==0) {
+			list = orderItemDao3.getListAll(orderItemDto);
+		}
+		else {
+			list = orderItemDao3.getList(orderItemDto);
+		}
 		
-//		return orderItemDao.getList(offset, size, id, status, field, query);
-		return orderItemDao3.getList(orderItemDto);
+		return list;
 	}
 	
 	// 판매자의 주문 detail의 뷰를 위한 페이지
@@ -121,30 +134,29 @@ public class OrderServiceImpl{
 		
 //		orderItemDao.updateWaybillNum(dtlNum, deliveryId, waybillNum);
 		orderItemDao3.updateWaybillNum(dtlNum, deliveryId, waybillNum);
-		// 에러발생코드
-		orderItemDao3.insertError();
-		
-		// 정상 코드
-//		OrderItem orderItem = new OrderItem();
-//		orderItem.setOrderId(58);
-//		orderItem.setItemId(2);
-//		orderItem.setQty(2);
-//		orderItem.setPayMethod("card");
-//		orderItem.setStatus("입금완료");
-//		orderItem.setDeliveryMemo("잘 부탁 드립니다");
-//		orderItem.setPayDDate(new Date());
-//		orderItemDao3.insert(orderItem);
+
 	}
 	
+	@Transactional
 	// 판매자가 무통장 거래일 때 입금을 확인했을때
 	public int confirmPay(int id) {
 		
-		Date payCDate = new Date();
+		Date cfDate = new Date();
 		HashMap<String, Object> map = new HashMap<>();
-		map.put("id", id);
-		map.put("payCDate", payCDate);
+		OrderItem oi = orderItemDao3.getOrderItem(id);
 		
-		return orderItemDao3.updatePayCDate(map);
+		map.put("id",oi.getOrderId());
+		map.put("cfDate", cfDate);
+		
+		HashMap<String, Object> map2 = new HashMap<>();
+		map2.put("id", id);
+		
+		// 입금확인 시간
+		orderDao.update(map);
+		// 상태변경
+		
+		return orderItemDao3.updatePayCDate(map2);
+		
 	}
 	
 	public List<Delivery> getDelivery() {

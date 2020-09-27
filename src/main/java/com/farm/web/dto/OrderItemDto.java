@@ -3,24 +3,21 @@ package com.farm.web.dto;
 public class OrderItemDto {
 	
 	private int id;
-	private String status;
+	private int status;
 	private String field;
 	private String query;
 	private int size;
 	private int offset;
-	
-
-
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getStatus() {
+	public int getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 	public String getField() {
@@ -49,10 +46,9 @@ public class OrderItemDto {
 	}
 	@Override
 	public String toString() {
-		return "OrderItemListParam [id=" + id + ", status=" + status + ", field=" + field + ", query=" + query
-				+ ", size=" + size + ", offset=" + offset + "]";
+		return "OrderItemDto [id=" + id + ", status=" + status + ", field=" + field + ", query=" + query + ", size="
+				+ size + ", offset=" + offset + "]";
 	}
-	
 	
 
 }

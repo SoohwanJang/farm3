@@ -28,7 +28,7 @@ public interface OrderItemDao {
 	@Select("select * from OrderItem where id=${id}")
 	OrderItem get(int id);
 
-	@Insert("insert into OrderItem(itemId,qty,orderId,payMethod,status,deliveryMemo,payDDate,payCDate) values(#{itemId},#{qty},#{orderId},#{payMethod},#{status},#{deliveryMemo},#{payDDate},#{payCDate})")
+	@Insert("insert into OrderItem(itemId,qty,orderId,status) values(#{itemId},#{qty},#{orderId},#{status})")
 	int insert(OrderItem orderItem);
 	
 	@Update("")
@@ -38,13 +38,13 @@ public interface OrderItemDao {
 	int delete();
 	
 	//***********************지욱*************************
-		@Select("select * from OrderItemView where mUid='${uid}' order by payDDate DESC")
+		@Select("select * from OrderItemView where mUid=#{uid} order by oRegDate desc")
 		List<OrderItemView> getListToUid(String uid);
 
 		@Update("update OrderItem set ${field}='${query}' where id=#{id}")
 		int updateStatus(int id,String field,String query);
 		
-		@Select("SELECT status element,COUNT(status) count FROM OrderItemView where mUid = #{uid} group by status")
+		@Select("SELECT oiStatus element,COUNT(oiStatus) count FROM OrderItemView where mUid = #{uid} group by oiStatus")
 		List<SimpleCountView> getCount(String uid);
 		
 //		---------------수환------------

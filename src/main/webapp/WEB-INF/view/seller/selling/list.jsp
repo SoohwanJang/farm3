@@ -61,12 +61,12 @@
 	                    <fieldset>
 		        	        <div>
 								<select name="st">
-					    			<option value=""		${st eq '전체' ? 'selected' : '' }	>전체</option>
-					    			<option value="입금대기"	${st eq '입금대기' ? 'selected' : '' }	>입금대기</option>
-					    			<option value="입금확인"	${st eq '입금확인' ? 'selected' : '' }	>입금확인</option>
-					    			<option value="배송중"	${st eq '배송중' ? 'selected' : '' }	>배송중</option>
-					    			<option value="배송완료"	${st eq '배송완료' ? 'selected' : '' }	>배송완료</option>
-					    			<option value="주문취소"	${st eq '주문취소' ? 'selected' : '' }	>주문취소</option>
+					    			<option value="0"	${st eq '0' ? 'selected' : '' }>전체</option>
+					    			<option value="1"	${st eq '1' ? 'selected' : '' }	>입금대기</option>
+					    			<option value="2"	${st eq '2' ? 'selected' : '' }	>입금확인</option>
+					    			<option value="3"	${st eq '3' ? 'selected' : '' }	>배송중</option>
+					    			<option value="4"	${st eq '4' ? 'selected' : '' }	>배송완료</option>
+					    			<option value="5"	${st eq '5' ? 'selected' : '' }	>주문취소</option>
 					    		</select>	        	        
 		        	        </div>
 	                        <div class="board-search">
@@ -107,7 +107,28 @@
 	                            <c:forEach var="ol" items="${oiList }" varStatus="status">
 	                                <tr>
 	                                    <td>${status.count}</td>
-	                                    <td>${ol.status}</td>
+	                                    
+	                                    <c:choose>
+	                                    <c:when test="${ol.oiStatus == 1}">
+	                                    <td>입금대기</td>
+	                                    </c:when>
+	                                    <c:when test="${ol.oiStatus == 2}">
+	                                    <td>입금확인</td>
+	                                    </c:when>	                                    
+	                                    <c:when test="${ol.oiStatus == 3}">
+	                                    <td>배송중</td>
+	                                    </c:when>
+	                                    <c:when test="${ol.oiStatus == 4}">
+	                                    <td>배송완료</td>
+	                                    </c:when>
+	                                    <c:when test="${ol.oiStatus == 5}">
+	                                    <td>주문취소</td>
+	                                    </c:when>
+	                                    <c:otherwise>
+	                                    <td>무상태</td>
+	                                    </c:otherwise>	                                   
+	                                    </c:choose>
+	                                    
 	                                    <td>${ol.mUid}(${ol.mName})</td>
 	                                    <td>${ol.iName}</td>
 	                                    <td>${ol.iRegName}</td>

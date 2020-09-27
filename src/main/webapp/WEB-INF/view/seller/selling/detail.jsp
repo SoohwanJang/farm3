@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%> <%@ taglib prefix="c"
-uri="http://java.sun.com/jsp/jstl/core" %> <%@ taglib prefix="fmt"
-uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -78,7 +77,26 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
                 </thead>
                 <tbody>
                   <tr class="sts-parent">
-                    <td class="sts">${oi.status}</td>
+                    <c:choose>
+                    <c:when test="${oi.oiStatus == 1}">
+                    <td class="sts">입금대기</td>
+                    </c:when>
+                    <c:when test="${oi.oiStatus == 2}">
+                    <td class="sts">입금확인</td>
+                    </c:when>	                                    
+                    <c:when test="${oi.oiStatus == 3}">
+                    <td class="sts">배송중</td>
+                    </c:when>
+                    <c:when test="${oi.oiStatus == 4}">
+                    <td class="sts">배송완료</td>
+                    </c:when>
+                    <c:when test="${oi.oiStatus == 5}">
+                    <td class="sts">주문취소</td>
+                    </c:when>
+                    <c:otherwise>
+                    <td>무상태</td>
+                    </c:otherwise>                                  
+                    </c:choose>
                     <td>${oi.mUid}(${oi.mName})</td>
                     <td>${oi.iName}</td>
                     <td>${oi.iRegName}</td>
@@ -109,7 +127,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
                       />
                     </td>
                     <td>${oi.oDes}</td>
-                    <td>${oi.deliveryMemo}</td>
+                    <td>${oi.oMemo}</td>
                     <td>
                       <select name="delivery">
                       <c:forEach var="d" items="${dl }">
@@ -120,10 +138,10 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
                     <td>
                     <input name="waybillNum" type="text" value="${oi.waybillNum eq '' ? '': oi.waybillNum}"/>
                     </td>
-                    <c:if test="${oi.status eq '입금대기'}">
+                    <c:if test="${oi.oiStatus eq '1'}">
                       <td class="admin-button confirm-payment">입금확인</td>
                     </c:if>
-                    <c:if test="${oi.status ne '입금대기'}">
+                    <c:if test="${oi.oiStatus ne '1'}">
                       <td class="admin-button">확인됨</td>
                     </c:if>
                   </tr>

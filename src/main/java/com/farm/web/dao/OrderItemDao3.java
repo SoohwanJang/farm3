@@ -19,7 +19,11 @@ public interface OrderItemDao3 {
 	 */
 	List<OrderItemView> getList(OrderItemDto orderItemDto);
 	
+	List<OrderItemView> getListAll(OrderItemDto orderItemDto);
+	
 	OrderItemView getView(int id);
+	
+	OrderItem getOrderItem(int id);
 	
 	int updateWaybillNum(int dtlNum, int deliveryId, int waybillNum);
 	

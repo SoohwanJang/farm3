@@ -146,6 +146,19 @@ public class BasketService {
 		Order insertOrder = new Order();
 		insertOrder.setMemberId(memberId);
 		insertOrder.setDestination(orderSheet.getDestination());
+		insertOrder.setMemo(orderSheet.getDeliveryMemo());
+		insertOrder.setPayMethod(orderSheet.getMethod());
+		
+		Date now = new Date();
+		
+		if(orderSheet.getMethod().equals("card")) {
+			insertOrder.setCfDate(now);
+		}
+		
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(now);
+		cal.add(Calendar.DATE, 7);
+		insertOrder.setDueDate(cal.getTime());
 		
 //		order
 		orderDao.insert(insertOrder);
@@ -153,21 +166,16 @@ public class BasketService {
 		
 //		orderItem
 		OrderItem oi = new OrderItem();
-		oi.setDeliveryMemo(orderSheet.getDeliveryMemo());
 		oi.setOrderId(order.getId());
-		oi.setPayMethod(orderSheet.getMethod());
-		oi.setStatus("입금대기");
+		
 		
 		if(orderSheet.getMethod().equals("card")) {
-			oi.setPayCDate(new Date());
 			oi.setStatus("입금완료");
 		}
+		else {
+			oi.setStatus("입금대기");
+		}
 			
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(order.getRegDate());
-		cal.add(Calendar.DATE, 7);
-		oi.setPayDDate(cal.getTime());
-		
 		String[] nums_ = orderSheet.getSelectRows().split(",");
 		List<Integer> nums = new ArrayList<>();
 		for(String num_ : nums_)
