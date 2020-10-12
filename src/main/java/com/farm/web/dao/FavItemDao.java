@@ -13,17 +13,17 @@ import com.farm.web.entity.FavItemView;
 @Mapper
 public interface FavItemDao {
 	
-	@Select("select * from FavItem where memberId = #{memberId}")
+	@Select("select * from favitem where memberId = #{memberId}")
 	List<FavItem> getListTomemberId(int memberId);
 
-	@Insert("insert into FavItem(itemId,memberId) values(#{itemId},#{memberId})")
+	@Insert("insert into favitem(itemId,memberId) values(#{itemId},#{memberId})")
 	int insert(int itemId, int memberId);
 
-	@Delete("delete from FavItem where id=#{id}")
+	@Delete("delete from favitem where id=#{id}")
 	void delete(int id);
 	
 	//지욱
-	@Select("select * from FavItemView where memberId = #{memberId} ORDER BY regdate")
+	@Select("select * from favitemview where memberId = #{memberId} ORDER BY regdate")
 	List<FavItemView> getViewList(int memberId);
 
 }

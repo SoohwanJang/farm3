@@ -170,10 +170,10 @@ public class BasketService {
 		
 		
 		if(orderSheet.getMethod().equals("card")) {
-			oi.setStatus("입금완료");
+			oi.setStatus(2);
 		}
 		else {
-			oi.setStatus("입금대기");
+			oi.setStatus(1);
 		}
 			
 		String[] nums_ = orderSheet.getSelectRows().split(",");

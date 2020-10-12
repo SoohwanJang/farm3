@@ -13,6 +13,7 @@
 	<artifactId>Farm</artifactId>
 	<version>1.0</version>
 	<name>Farm</name>
+	<packaging>war</packaging>
 	<description>Demo project for Git Test</description>
 
 	<properties>

@@ -49,7 +49,7 @@
 							<td><a href="${l.id }">${l.title }</a></td>
 							<td>${l.staffName }</td>
 							<td>${dateTempParse }</td>
-							<td>${l.appDate!=null ? "승인 대기 중" : "승인"}</td>
+							<td>${l.appDate==null ? "승인 대기 중" : "승인"}</td>
 						</tr>
 					</c:forEach>
 				</tbody>

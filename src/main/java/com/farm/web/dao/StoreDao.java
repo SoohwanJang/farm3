@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface StoreDao {
 	/*******************************************지욱********************************************************/
-	@Insert("INSERT INTO Store(itemId,qty)"
+	@Insert("INSERT INTO store(itemId,qty)"
 			+ "values(#{itemId},#{qty})")
 	int insert(int itemId,int qty);
 	/******************************************************************************************************/

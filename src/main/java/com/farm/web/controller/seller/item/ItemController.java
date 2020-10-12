@@ -151,37 +151,26 @@ public class ItemController {
 			
 			
 		
-        ////이미지업로드를 안한다면 업로드 금지하는거 추가하기////
-		String path = request.getServletContext().getRealPath("/upload/"); 
-		File file1 = new File(path);
-		if(!file1.exists()) 
-          file1.mkdir();
-		path += file.getOriginalFilename();
-		item.setImage(file.getOriginalFilename());
-		FileOutputStream os = new FileOutputStream(path);
+	        ////이미지업로드를 안한다면 업로드 금지하는거 추가하기////
+			String path = request.getServletContext().getRealPath("/upload/"); 
+			File file1 = new File(path);
+			if(!file1.exists()) 
+	          file1.mkdir();
+			path += file.getOriginalFilename();
+			item.setImage(file.getOriginalFilename());
+			FileOutputStream os = new FileOutputStream(path);
+	       
+			InputStream is = file.getInputStream();
+	      
+			byte[] buf = new byte[1024];
+			int len = 0;
+			while((len = is.read(buf)) != -1) // buf사이즈 만큼 read함 // is.read(buf) -> 다 못채웠으면 LEN만큼 반환함    
+	          os.write(buf, 0, len);
        
-      InputStream is = file.getInputStream();
-      
-      byte[] buf = new byte[1024];
-      int len = 0;
-       while((len = is.read(buf)) != -1) // buf사이즈 만큼 read함 // is.read(buf) -> 다 못채웠으면 LEN만큼 반환함    
-          os.write(buf, 0, len);
        
-       
-//      등록
-		int result = spservice.insertSellerProduct(item,qty);
-		
-//		아이템 등록 및 입고 성공
-		if(result==1)
-			System.out.println("아이템 등록 및 입고 성공");
-//		입고 실패
-		if(result==0) {
-			System.out.println("입고 실패");
-		}
-//		아이템 등록 실패
-		if(result==0) {
-			System.out.println("아이템 등록 실패");
-		}
+//      	등록
+	        spservice.insertSellerProduct(sellerId,item,qty);
+			
 		
 		return "redirect:/seller/index";
 		

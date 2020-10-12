@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.farm.web.entity.AdminSellerView;
 import com.farm.web.entity.SellerApply;
 import com.farm.web.service.ApplyService;
 
@@ -24,6 +23,7 @@ public class ApplyController {
 
 	@Autowired
 	ApplyService applyService;
+
 	
 	@GetMapping("list")
 	public String list(@RequestParam(name = "p", defaultValue = "1") Integer page,
@@ -53,12 +53,14 @@ public class ApplyController {
 	}
 	
 	@PostMapping("reg")
-	public String reg(SellerApply sellerApply, HttpServletRequest request) {
+	public String reg(SellerApply sellerApply
+					, HttpServletRequest request
+					, Principal principal ) {
 		
 		sellerApply.setBrn(Integer.parseInt(request.getParameter("brn_")));
-		int id = 3;
-		sellerApply.setId(id);
-		applyService.regSeller(sellerApply);	
+		String uid = principal.getName();
+
+		applyService.regSeller(uid, sellerApply);	
 		
 		return "redirect:list";
 	}

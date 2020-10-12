@@ -1,21 +1,23 @@
 package com.farm.web.service;
 
-import com.farm.web.dao.ApplyDao;
-import com.farm.web.dao.NoticeDao;
-import com.farm.web.entity.AdminSellerView;
-import com.farm.web.entity.Notice;
-import com.farm.web.entity.SellerApply;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.farm.web.dao.ApplyDao;
+import com.farm.web.dao.MemberDao;
+import com.farm.web.entity.Member;
+import com.farm.web.entity.SellerApply;
 
 @Service
 public class ApplyService {
 
 	@Autowired
 	private ApplyDao applyDao;
+	@Autowired
+	private MemberDao memberDao;
 	
 	public List<SellerApply> getList(Integer page, String field, String query) {
 		int size = 10;
@@ -39,8 +41,10 @@ public class ApplyService {
 		return applyDao.delete(ids);
 	}
 	
-public int updateAccept(int id) {
+	@Transactional
+	public int updateAccept(int id) {
 		
+		memberDao.updateSeller(id);
 		return applyDao.update(id);
 	}
 
@@ -57,8 +61,9 @@ public int updateAccept(int id) {
 		return applyDao.getList(offset, size, field, query);
 	}
 
-	public int regSeller(SellerApply sellerApply) {
-		
+	public int regSeller(String uid, SellerApply sellerApply) {
+		 Member member = memberDao.getByUid(uid);
+		 sellerApply.setId(member.getId());
 		
 		return applyDao.insertRegSeller(sellerApply);
 	}

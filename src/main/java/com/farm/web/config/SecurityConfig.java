@@ -56,9 +56,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
       auth //DB에 있는 내용 사용
          .jdbcAuthentication()
             .dataSource(dataSource)
-            .usersByUsernameQuery("select uid id, pwd password, enabled from Member where uid=?")
+            .usersByUsernameQuery("select uid id, pwd password, enabled from member where uid=?")
             //enabled 사용자가 활성화 됬냐 (휴먼계정같은 느낌)
-            .authoritiesByUsernameQuery("select uid id, role roleId from Member where uid=?")
+            .authoritiesByUsernameQuery("select uid id, role roleId from member where uid=?")
             //사용자 권한을 작성하는 테이블
             .passwordEncoder(new BCryptPasswordEncoder()); //DB에 암호화된 비번을 비교하는 것
    }

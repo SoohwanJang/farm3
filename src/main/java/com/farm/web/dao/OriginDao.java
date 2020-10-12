@@ -10,10 +10,10 @@ import com.farm.web.entity.Origin;
 @Mapper
 public interface OriginDao {
 /////지욱
-	@Select("SELECT * FROM Origin where sup is null")
+	@Select("SELECT * FROM origin where sup is null")
 	List<Origin> getList();
 	
-	@Select("SELECT * FROM Origin where sup=${pid}")
+	@Select("SELECT * FROM origin where sup=${pid}")
 	List<Origin> getApiList(int pid);
 ///////////
 }

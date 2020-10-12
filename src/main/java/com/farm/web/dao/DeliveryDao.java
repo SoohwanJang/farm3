@@ -10,6 +10,6 @@ import com.farm.web.entity.Delivery;
 @Mapper
 public interface DeliveryDao {
 	
-	@Select("select * from Delivery")
+	@Select("select * from delivery")
 	List<Delivery> getList();
 }
